@@ -3,7 +3,7 @@
 标签： 微信公众号开发 自定义菜单
 
 ----------
-![we.PNG-36.1kB][1]
+![捕获.PNG-36.1kB][1]
 
 应公司要求，这个仅针对的PC网页端的微信自定义菜单管理，我只发出了前端页面效果的代码，后台逻辑没有发。
 
@@ -15,7 +15,7 @@
 ----------
 
 
-声明：页面的图片是直接使用微信官方的素材，布局大多也参考的微信官方的，出了js是自己写的。
+声明：页面的图片是直接使用微信官方的素材，布局大多也参考的微信官方的，除了js是自己写的。
 
 
-  [1]: http://static.zybuluo.com/sunbrook/bhdendhthbr6s34nv56rhafm/we.PNG
+  [1]: http://static.zybuluo.com/sunbrook/r0dzcz52wcyw05yoxwt42egt/%E6%8D%95%E8%8E%B7.PNG
