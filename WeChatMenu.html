@@ -4,7 +4,193 @@
     <meta charset="UTF-8">
     <title>微信菜单管理</title>
 </head>
-<body>
 
+<link rel="stylesheet" href="css/wxMenu.css"/>
+
+<script src="js/jquery-1.8.2.min.js"></script>
+<script src="js/wxMenu.js"></script>
+
+<body style="padding-top:60px;padding-left: 150px;">
+<div class="wxMobile">
+    <div class="mobileHead">
+        <div class="mbTitle">公众号</div>
+    </div>
+    <div class="mobileBody"></div>
+    <div class="mobileFoot">
+        <ul class="menuList">
+            <li class="js_firstadd pre_menu_item">
+                <a href="javascript:void(0);" class="current js_addL1Btn" title="最多添加3个一级菜单" draggable="false">
+                    <i class="icon14_menu_add2"></i>
+                    <span class="js_addMenuTips">添加菜单</span>
+                </a>
+            </li>
+            <li id="menu1" class="pre_menu_item menu_parent m1 dn">
+                <a href="javascript:void(0);" title="最多添加3个一级菜单">
+                    <i class="icon14_menu_add"></i>
+                </a>
+                <div class="sub_pre_menu_box" style="display:none;">
+                    <ul class="sub_pre_menu_list">
+                        <li class="js_addMenuBox">
+                            <a href="javascript:void(0);" class="jsSubView js_addL2Btn" title="最多添加5个子菜单"
+                               draggable="false">
+                                    <span class="sub_pre_menu_inner js_sub_pre_menu_inner inner_top">
+                                        <i class="icon14_menu_add"></i>
+                                    </span>
+                            </a>
+                        </li>
+                    </ul>
+                    <i class="arrow arrow_out"></i>
+                    <i class="arrow arrow_in"></i>
+                </div>
+            </li>
+            <li id="menu2" class="pre_menu_item menu_parent m2 dn">
+                <a href="javascript:void(0);" title="最多添加3个一级菜单">
+                    <i class="icon14_menu_add"></i>
+                </a>
+                <div class="sub_pre_menu_box" style="display:none;">
+                    <ul class="sub_pre_menu_list">
+                        <li class="js_addMenuBox">
+                            <a href="javascript:void(0);" class="jsSubView js_addL2Btn" title="最多添加5个子菜单"
+                               draggable="false">
+                                    <span class="sub_pre_menu_inner js_sub_pre_menu_inner inner_top">
+                                        <i class="icon14_menu_add"></i>
+                                    </span>
+                            </a>
+                        </li>
+                    </ul>
+                    <i class="arrow arrow_out"></i>
+                    <i class="arrow arrow_in"></i>
+                </div>
+            </li>
+            <li id="menu3" class="pre_menu_item menu_parent m3 dn">
+                <a href="javascript:void(0);" title="最多添加3个一级菜单">
+                    <i class="icon14_menu_add"></i>
+                </a>
+                <div class="sub_pre_menu_box" style="display:none;">
+                    <ul class="sub_pre_menu_list">
+                        <li class="js_addMenuBox">
+                            <a href="javascript:void(0);" class="jsSubView js_addL2Btn" title="最多添加5个子菜单"
+                               draggable="false">
+                                    <span class="sub_pre_menu_inner js_sub_pre_menu_inner inner_top">
+                                        <i class="icon14_menu_add"></i>
+                                    </span>
+                            </a>
+                        </li>
+                    </ul>
+                    <i class="arrow arrow_out"></i>
+                    <i class="arrow arrow_in"></i>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+<div class="menu_from_area">
+    <!--左侧箭头-->
+    <span class="editor_arrow_wrp">
+            <i class="editor_arrow editor_arrow_out"></i>
+            <i class="editor_arrow editor_arrow_in"></i>
+        </span>
+    <!--编辑区-->
+    <div class="js_rightbox">
+        <!--空白提示页-->
+        <div class="space_tips">
+            <span class="span_tips">点击左侧菜单进行编辑操作</span>
+        </div>
+        <div class="global_mod float_layout menu_form_hd js_second_title_bar mid_div dn">
+            <h4 class="global_info">菜单名称</h4>
+            <div class="global_extra">
+                <a href="javascript:void(0);" id="jsDelBt">删除菜单</a>
+            </div>
+        </div>
+
+        <div class="frm_control_group mid_div dn">
+            <!--提示父级菜单只能名称-->
+            <div id="js_innerNone"></div>
+            <label class="frm_label">
+                <strong class="title ts">菜单名称</strong>
+            </label>
+            <div class="frm_controls">
+                    <span class="frm_input_box with_counter counter_in append">
+                        <input type="text" class="frm_input" id="menu_name" />
+                    </span>
+                <p class="frm_msg fail js_titleEorTips" style="display: none;">字数超过上限</p>
+                <p class="frm_msg fail js_titlenoTips" style="display: none;">请输入菜单名称</p>
+                <p class="frm_tips js_titleNolTips"></p>
+            </div>
+        </div>
+        <div class="frm_control_group mid_div mid_type dn">
+            <label class="frm_label">
+                <strong class="title">菜单类型</strong>
+            </label>
+            <div class="frm_controls">
+                <label class="frm_radio_lbl">
+                    <input name="menu_type" class="frm_radio rd_view" type="radio" value="view" checked />
+                    <span class="frm_radio_span">跳转网页</span>
+                </label>
+                <label class="frm_radio_lbl">
+                    <input name="menu_type" class="frm_radio rd_click" type="radio" value="click" />
+                    <span class="frm_radio_span">点击事件</span>
+                </label>
+                <label class="frm_radio_lbl">
+                    <input name="menu_type" class="frm_radio rd_scan" type="radio" value="scancode_push" />
+                    <span class="frm_radio_span">调用扫码</span>
+                </label>
+            </div>
+        </div>
+        <div class="frm_control_group m_val mid_div mid_value dn" style="margin-top:55px;padding-top:20px;">
+            <label class="frm_label" style="margin-top:5px;">
+                <strong class="title lbl_name">跳转链接</strong>
+            </label>
+            <div class="frm_controls">
+                    <span class="frm_input_box with_counter counter_in append">
+                        <input type="text" class="frm_input" id="menu_val" />
+                    </span>
+                <p class="frm_msg fail js_valnoTips" style="display: none;">请输入此项内容</p>
+                <p class="frm_msg fail js_valHttpTips" style="display: none;">请以“http://”或“https://”开头</p>
+                <p class="frm_msg fail js_valErrTips" style="display: none;">跳转链接格式不对</p>
+                <p class="frm_tips fail">只会上传对应类型的值到微信菜单中</p>
+            </div>
+        </div>
+    </div>
+</div>
+<!--拿取菜单信息和保存并发布信息-->
+<div class="js_twobtn">
+    <button id="orderBt" class="btn btn_info">获取微信菜单</button>
+    <button id="submitMenu" class="btn btn_primary">保存发布菜单</button>
+    <button id="removeMenu" class="btn btn_danger">删除线上菜单</button>
+</div>
+<!--遮罩层-->
+<div class="fade" style="display: none;"></div>
+<!--弹窗-->
+<div class="dialog_wrp  ui-draggable" style="width: 720px; margin-left: -360px; margin-top: -236.5px;display:none;">
+    <div class="dialog" id="wxDialog_2">
+        <div class="dialog_hd">
+            <h3>温馨提示</h3>
+            <button onclick="popClose()" class="weui-desktop-dialog__close-btn pop_closed">
+                <svg width="18" height="18" viewBox="0 0 18 18" xmlns="http://www.w3.org/2000/svg"><title>Element / Icon - Close</title><path d="M10.01 8.996l7.922-7.922c.086-.086.085-.21.008-.289l-.73-.73c-.075-.074-.208-.075-.29.007L9 7.984 1.077.062C.995-.02.863-.019.788.055l-.73.73c-.078.078-.079.203.007.29l7.922 7.92-7.922 7.922c-.086.086-.085.212-.007.29l.73.73c.075.074.207.074.29-.008l7.92-7.921 7.922 7.921c.082.082.215.082.29.008l.73-.73c.077-.078.078-.204-.008-.29l-7.921-7.921z"></path></svg>
+            </button>
+        </div>
+        <div class="dialog_bd">
+            <div class="page_msg large simple default ">
+                <div class="inner group">
+                        <span class="msg_icon_wrapper">
+                            <!--提示图标-->
+                            <i class="icon_msg tip "></i>
+                        </span>
+                    <div class="msg_content ">
+                        <!--提示标题-->
+                        <h4>发布确认</h4>
+                        <!--提示描述-->
+                        <p>发布成功后会覆盖原版本，且将在24小时内对所有用户生效，确认发布？</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="dialog_ft">
+            <a href="javascript:;" id="dialogOk" class="btn btn_primary js_btn">确定</a>
+            <a href="javascript:;" id="dialogClose" class="btn btn_default js_btn" onclick="popClose()">取消</a>
+        </div>
+    </div>
+</div>
 </body>
 </html>
